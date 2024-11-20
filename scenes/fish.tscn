@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://bive4dvyu70kh"]
+
+[ext_resource type="Script" path="res://scripts/fish.gd" id="1_ofous"]
+[ext_resource type="Texture2D" uid="uid://2alitnr6aw6i" path="res://assets/fish.png" id="1_r5g33"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p17gh"]
+size = Vector2(26.5, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gkph1"]
+size = Vector2(87, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4lqk"]
+size = Vector2(87, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7r4ac"]
+size = Vector2(26, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqwpw"]
+size = Vector2(26, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syk7d"]
+size = Vector2(17, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u1va"]
+size = Vector2(9, 7)
+
+[node name="Fish" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_ofous")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r5g33")
+
+[node name="MainBody" type="CollisionShape2D" parent="."]
+position = Vector2(-1.77636e-15, 4)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_p17gh")
+
+[node name="Top" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -13.5)
+shape = SubResource("RectangleShape2D_gkph1")
+
+[node name="Bottom" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, 22)
+shape = SubResource("RectangleShape2D_h4lqk")
+
+[node name="FrontFin1" type="CollisionShape2D" parent="."]
+position = Vector2(-35, -26.5)
+shape = SubResource("RectangleShape2D_7r4ac")
+
+[node name="BackFin1" type="CollisionShape2D" parent="."]
+position = Vector2(9, -26)
+shape = SubResource("RectangleShape2D_uqwpw")
+
+[node name="BackFin2" type="CollisionShape2D" parent="."]
+position = Vector2(-30.5, 30.5)
+shape = SubResource("RectangleShape2D_syk7d")
+
+[node name="FrontFin2" type="CollisionShape2D" parent="."]
+position = Vector2(17.5, 30.5)
+shape = SubResource("RectangleShape2D_3u1va")
