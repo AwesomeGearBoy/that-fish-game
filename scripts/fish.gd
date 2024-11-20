@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Fish
 
 var face_left := false
 var lastRotation := 0.0

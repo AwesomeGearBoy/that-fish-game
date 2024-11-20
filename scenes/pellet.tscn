@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqvgyxu7nwxah"]
+[gd_scene load_steps=5 format=3 uid="uid://bqvgyxu7nwxah"]
 
 [ext_resource type="Texture2D" uid="uid://bt1h6yylcg6mp" path="res://assets/pellet1.png" id="1_idwws"]
+[ext_resource type="Script" path="res://scripts/pellet.gd" id="1_vlniq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ppyji"]
 size = Vector2(10, 10)
@@ -8,7 +9,9 @@ size = Vector2(10, 10)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l14ht"]
 size = Vector2(10, 10)
 
-[node name="Pellet" type="StaticBody2D"]
+[node name="Pellet" type="Area2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_vlniq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.2, 0.2)
@@ -21,3 +24,5 @@ shape = SubResource("RectangleShape2D_ppyji")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(5, -5)
 shape = SubResource("RectangleShape2D_l14ht")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

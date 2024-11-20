@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bej0wm8vm6yru"]
+[gd_scene load_steps=9 format=3 uid="uid://bej0wm8vm6yru"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_utjny"]
 [ext_resource type="Texture2D" uid="uid://bchwcst6o8abj" path="res://assets/blue.png" id="2_yejrc"]
 [ext_resource type="PackedScene" uid="uid://bive4dvyu70kh" path="res://scenes/fish.tscn" id="3_3rdj4"]
+[ext_resource type="PackedScene" uid="uid://bqvgyxu7nwxah" path="res://scenes/pellet.tscn" id="4_gqnmx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vy3o"]
 size = Vector2(1440, 281)
@@ -50,3 +51,6 @@ shape = SubResource("RectangleShape2D_xt7en")
 
 [node name="Fish" parent="." instance=ExtResource("3_3rdj4")]
 position = Vector2(200, 600)
+
+[node name="Pellet" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
