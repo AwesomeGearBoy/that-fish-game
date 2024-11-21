@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bej0wm8vm6yru"]
+[gd_scene load_steps=10 format=3 uid="uid://bej0wm8vm6yru"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_utjny"]
 [ext_resource type="Texture2D" uid="uid://bchwcst6o8abj" path="res://assets/blue.png" id="2_yejrc"]
 [ext_resource type="PackedScene" uid="uid://bive4dvyu70kh" path="res://scenes/fish.tscn" id="3_3rdj4"]
 [ext_resource type="PackedScene" uid="uid://bqvgyxu7nwxah" path="res://scenes/pellet.tscn" id="4_gqnmx"]
+[ext_resource type="PackedScene" uid="uid://csffetabuhp8o" path="res://scenes/gunk.tscn" id="5_nrhea"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vy3o"]
 size = Vector2(1440, 281)
@@ -49,8 +50,45 @@ shape = SubResource("RectangleShape2D_37oei")
 position = Vector2(1550, 405)
 shape = SubResource("RectangleShape2D_xt7en")
 
+[node name="Pellet1" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Pellet2" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Pellet3" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Pellet4" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Pellet5" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Pellet6" parent="." instance=ExtResource("4_gqnmx")]
+scale = Vector2(1, 1)
+
+[node name="Gunk1" parent="." instance=ExtResource("5_nrhea")]
+
+[node name="Gunk2" parent="." instance=ExtResource("5_nrhea")]
+
 [node name="Fish" parent="." instance=ExtResource("3_3rdj4")]
 position = Vector2(200, 600)
 
-[node name="Pellet" parent="." instance=ExtResource("4_gqnmx")]
-scale = Vector2(1, 1)
+[node name="Score" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 40
+text = "SCORE: 0"
+
+[connection signal="body_entered" from="Pellet1" to="." method="_on_pellet_1_body_entered"]
+[connection signal="collected" from="Pellet1" to="." method="_on_pellet_collected"]
+[connection signal="body_entered" from="Pellet2" to="." method="_on_pellet_2_body_entered"]
+[connection signal="body_entered" from="Pellet3" to="." method="_on_pellet_3_body_entered"]
+[connection signal="body_entered" from="Pellet4" to="." method="_on_pellet_4_body_entered"]
+[connection signal="body_entered" from="Pellet5" to="." method="_on_pellet_5_body_entered"]
+[connection signal="body_entered" from="Pellet6" to="." method="_on_pellet_6_body_entered"]
+[connection signal="body_entered" from="Gunk1" to="." method="_on_gunk_1_body_entered"]
+[connection signal="body_entered" from="Gunk2" to="." method="_on_gunk_2_body_entered"]
