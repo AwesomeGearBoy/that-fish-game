@@ -1,14 +1,23 @@
 extends Node
 
+var menu := true
 var game_running := false
 var game_over := false
 var score := 0
+var final_score := 0
+var high_score := 0
 var lives := 3
 
 func _ready():
 	new_game()
 
 func _process(delta):
+	if !game_over && !menu:
+		if Input.is_action_just_pressed("esc"):
+			menu = true
+			game_running = false
+			game_over = false
+	
 	if lives >= 3:
 		$Lives.text = "LIVES: 3"
 	elif lives == 2:
@@ -17,6 +26,11 @@ func _process(delta):
 		$Lives.text = "LIVES: 1"
 	elif lives <= 0:
 		$Lives.text = "LIVES: "
+	
+	if menu:
+		$Menu.show()
+	elif !menu:
+		$Menu.hide()
 	
 	if lives <= 0:
 		game_running = false
@@ -45,9 +59,11 @@ func randomize_pellets():
 	$Pellet4.position.y = randi_range(-50, -500)
 	$Pellet5.position.y = randi_range(-50, -500)
 	$Pellet6.position.y = randi_range(-50, -500)
+	$SuperPellet.position.y = randi_range(-500, -1000)
 
 func randomize_gunk():
 	$Gunk1.position.y = randi_range(-100, -500)
+	$Gunk2.position.y = randi_range(-100, -500)
 
 func _on_pellet_1_body_entered(body):
 	if body is Fish:
@@ -95,6 +111,15 @@ func _on_super_pellet_body_entered(body: Node2D) -> void:
 	if body is Fish:
 		score = score + 300
 		$Score.text = "SCORE: " + str(score)
-	
+
+func _on_menu_start():
+	new_game()
+	menu = false
+
 func _on_game_over_restart():
 	new_game()
+
+func _on_game_over_menu_press():
+	menu = true
+	game_running = false
+	game_over = false

@@ -100,6 +100,7 @@ text = "SCORE: 0"
 visible = false
 
 [node name="Menu" parent="." instance=ExtResource("8_1exw2")]
+visible = false
 
 [connection signal="body_entered" from="Pellet1" to="." method="_on_pellet_1_body_entered"]
 [connection signal="collected" from="Pellet1" to="." method="_on_pellet_collected"]
@@ -111,4 +112,7 @@ visible = false
 [connection signal="body_entered" from="Gunk1" to="." method="_on_gunk_1_body_entered"]
 [connection signal="body_entered" from="Gunk2" to="." method="_on_gunk_2_body_entered"]
 [connection signal="body_entered" from="SuperPellet" to="." method="_on_super_pellet_body_entered"]
+[connection signal="menu" from="GameOver" to="." method="_on_game_over_menu_press"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
+[connection signal="restart" from="GameOver" to="Fish" method="_on_game_over_restart"]
+[connection signal="start" from="Menu" to="." method="_on_menu_start"]
