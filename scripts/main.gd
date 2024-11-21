@@ -6,7 +6,8 @@ func _ready():
 	pass
 
 func _process(delta):
-	print(score)
+	pass
 
-func score_add(amount: int):
-	score = score + amount
+func add_to_score(amount: int):
+	score += amount
+	print("New score: ", score)
