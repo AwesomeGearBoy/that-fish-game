@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bej0wm8vm6yru"]
+[gd_scene load_steps=13 format=3 uid="uid://bej0wm8vm6yru"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_utjny"]
 [ext_resource type="Texture2D" uid="uid://bchwcst6o8abj" path="res://assets/blue.png" id="2_yejrc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csffetabuhp8o" path="res://scenes/gunk.tscn" id="5_nrhea"]
 [ext_resource type="PackedScene" uid="uid://dn03vka7h0i37" path="res://scenes/super_pellet.tscn" id="5_yvyph"]
 [ext_resource type="PackedScene" uid="uid://tigis2wmy8bk" path="res://scenes/game_over.tscn" id="6_etxdm"]
+[ext_resource type="PackedScene" uid="uid://bxlms3f248n1l" path="res://scenes/menu.tscn" id="8_1exw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vy3o"]
 size = Vector2(1440, 281)
@@ -97,6 +98,8 @@ text = "SCORE: 0"
 
 [node name="GameOver" parent="." instance=ExtResource("6_etxdm")]
 visible = false
+
+[node name="Menu" parent="." instance=ExtResource("8_1exw2")]
 
 [connection signal="body_entered" from="Pellet1" to="." method="_on_pellet_1_body_entered"]
 [connection signal="collected" from="Pellet1" to="." method="_on_pellet_collected"]
