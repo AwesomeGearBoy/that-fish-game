@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bxlms3f248n1l"]
+
+[ext_resource type="Texture2D" uid="uid://bchwcst6o8abj" path="res://assets/blue.png" id="1_0agu1"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(720, 405)
+scale = Vector2(4.8, 4.82143)
+texture = ExtResource("1_0agu1")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.185497, 0.416209, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "That Fish Game"

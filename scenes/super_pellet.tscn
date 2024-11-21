@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn03vka7h0i37"]
+
+[ext_resource type="Script" path="res://scripts/super_pellet.gd" id="1_kobvr"]
+[ext_resource type="Texture2D" uid="uid://b5mkxmqdywhnw" path="res://assets/super_pellet2.png" id="2_sobgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3vi2t"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_33ihg"]
+size = Vector2(10, 10)
+
+[node name="SuperPellet" type="Area2D"]
+script = ExtResource("1_kobvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_sobgc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -5)
+shape = SubResource("RectangleShape2D_3vi2t")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_33ihg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
