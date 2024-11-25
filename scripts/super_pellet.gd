@@ -2,7 +2,7 @@ extends Area2D
 
 signal collected
 var pellet_delay := 200
-const PELLET_SPEED := 300
+const PELLET_SPEED := 450
 
 func _ready():
 	reset_pellet()

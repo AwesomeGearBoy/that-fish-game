@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bej0wm8vm6yru"]
+[gd_scene load_steps=14 format=3 uid="uid://bej0wm8vm6yru"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_utjny"]
 [ext_resource type="Texture2D" uid="uid://bchwcst6o8abj" path="res://assets/blue.png" id="2_yejrc"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://csffetabuhp8o" path="res://scenes/gunk.tscn" id="5_nrhea"]
 [ext_resource type="PackedScene" uid="uid://dn03vka7h0i37" path="res://scenes/super_pellet.tscn" id="5_yvyph"]
 [ext_resource type="PackedScene" uid="uid://tigis2wmy8bk" path="res://scenes/game_over.tscn" id="6_etxdm"]
+[ext_resource type="PackedScene" uid="uid://c1xaexkme2mvb" path="res://scenes/bubble.tscn" id="7_l08o3"]
 [ext_resource type="PackedScene" uid="uid://bxlms3f248n1l" path="res://scenes/menu.tscn" id="8_1exw2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0vy3o"]
@@ -80,6 +81,18 @@ scale = Vector2(1, 1)
 [node name="Fish" parent="." instance=ExtResource("3_3rdj4")]
 position = Vector2(200, 600)
 
+[node name="Bubble" parent="." instance=ExtResource("7_l08o3")]
+position = Vector2(-400, -400)
+
+[node name="Score" type="Label" parent="."]
+z_index = 1
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 181.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 40
+text = "SCORE: 0"
+
 [node name="Lives" type="Label" parent="."]
 offset_left = 1253.0
 offset_top = 7.0
@@ -88,13 +101,13 @@ offset_bottom = 62.0
 theme_override_font_sizes/font_size = 40
 text = "LIVES: III"
 
-[node name="Score" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 9.0
-offset_right = 181.0
-offset_bottom = 64.0
+[node name="Power" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 66.0
+offset_right = 195.0
+offset_bottom = 121.0
 theme_override_font_sizes/font_size = 40
-text = "SCORE: 0"
+text = "POWER: 0"
 
 [node name="GameOver" parent="." instance=ExtResource("6_etxdm")]
 visible = false
@@ -112,6 +125,7 @@ visible = false
 [connection signal="body_entered" from="Gunk1" to="." method="_on_gunk_1_body_entered"]
 [connection signal="body_entered" from="Gunk2" to="." method="_on_gunk_2_body_entered"]
 [connection signal="body_entered" from="SuperPellet" to="." method="_on_super_pellet_body_entered"]
+[connection signal="body_entered" from="Bubble" to="." method="_on_bubble_body_entered"]
 [connection signal="menu" from="GameOver" to="." method="_on_game_over_menu_press"]
 [connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
 [connection signal="restart" from="GameOver" to="Fish" method="_on_game_over_restart"]

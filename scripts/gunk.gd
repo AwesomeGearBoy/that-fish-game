@@ -1,8 +1,9 @@
 extends Area2D
+class_name Gunk
 
 signal eaten
-var gunk_delay := 50
-const GUNK_SPEED := 50
+var gunk_delay := 80
+const GUNK_SPEED := 100
 
 func _ready():
 	reset_gunk()

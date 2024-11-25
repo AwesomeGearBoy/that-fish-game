@@ -4,28 +4,28 @@ var menu := true
 var game_running := false
 var game_over := false
 var score := 0
-var final_score := 0
-var high_score := 0
 var lives := 3
+var power := 0
+const BUBBLE_SPEED = 400
+
+func keyWentDown(key) -> bool:
+	if Input.is_action_just_pressed(key):
+		return true
+	else:
+		return false
 
 func _ready():
 	new_game()
 
 func _process(delta):
+	$Lives.text = "LIVES: " + str(lives)
+	$Power.text = "POWER: " + str(power)
+	
 	if !game_over && !menu:
 		if Input.is_action_just_pressed("esc"):
 			menu = true
 			game_running = false
 			game_over = false
-	
-	if lives >= 3:
-		$Lives.text = "LIVES: 3"
-	elif lives == 2:
-		$Lives.text = "LIVES: 2"
-	elif lives == 1:
-		$Lives.text = "LIVES: 1"
-	elif lives <= 0:
-		$Lives.text = "LIVES: "
 	
 	if menu:
 		$Menu.show()
@@ -46,6 +46,7 @@ func new_game():
 	game_over = false
 	score = 0
 	lives = 3
+	power = 0
 	$Fish.position.x = 200
 	$Fish.position.y = 600
 	$Score.text = "SCORE: " + str(score)
@@ -110,7 +111,12 @@ func _on_gunk_2_body_entered(body):
 func _on_super_pellet_body_entered(body: Node2D) -> void:
 	if body is Fish:
 		score = score + 300
+		power = power + 15
 		$Score.text = "SCORE: " + str(score)
+
+func _on_bubble_body_entered(body):
+	if body is Gunk:
+		randomize_gunk()
 
 func _on_menu_start():
 	new_game()
