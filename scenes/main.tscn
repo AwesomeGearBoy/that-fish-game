@@ -102,10 +102,10 @@ theme_override_font_sizes/font_size = 40
 text = "LIVES: III"
 
 [node name="Power" type="Label" parent="."]
-offset_left = 9.0
-offset_top = 66.0
-offset_right = 195.0
-offset_bottom = 121.0
+offset_left = -449.0
+offset_top = -272.0
+offset_right = -263.0
+offset_bottom = -217.0
 theme_override_font_sizes/font_size = 40
 text = "POWER: 0"
 
