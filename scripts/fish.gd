@@ -19,6 +19,12 @@ func keyWentDown(key) -> bool:
 	else:
 		return false
 
+func keyWentUp(key) -> bool:
+	if Input.is_action_just_released(key):
+		return true
+	else:
+		return false
+
 func _process(delta):
 	var direction := Input.get_vector("a", "d", "w", "s")
 	var speed = BASE_SPEED
